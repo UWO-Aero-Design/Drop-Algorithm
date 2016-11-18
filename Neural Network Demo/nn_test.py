@@ -18,7 +18,7 @@ wx = 10
 wy = 5
 wz = 0
 
-print simulate_drop(m, x, y, z, vx, vy, vz, dx, dy, dz, wx, wy, wz, 0.0001)
+print (simulate_drop(m, x, y, z, vx, vy, vz, dx, dy, dz, wx, wy, wz, 0.0001))
 
 nn = MLPRegressor((50, 50, 50, 50))
 
