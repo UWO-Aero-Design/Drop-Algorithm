@@ -22,13 +22,19 @@ def simulate_drop(mass,  pos_self_current,  speed_current,  drag,  wind,  pos_go
 
     # angle from moving direction to the direction to aim in the clockwiseness of unit circle in degrees
     angle = calc_angle_diff_between(speed_current,   vector_add(pos_goal,pos_self_current,"-") )
-    return [time, pos_self, angleToDirect(angle), vector_add(pos_goal,pos_self,"-")]
+    landing_diff = vector_add(pos_goal,pos_self,"-")
+    result = {"time ": time, "landing pos: ": pos_self, "angle: ":angleToDirect(angle), "landing diff: ":[landing_diff]}
+    if abs(landing_diff[0])< 0.03 and abs(landing_diff[1])<0.03:
+        result["landing diff: "].insert(0,"would land at aim")
+    else:
+        result["landing diff: "].insert(0,"would not land at aim")
+    return result
     # output: [
     #
-    #            supposed length of time from dropping moment(now) to landing moment if it is dropped at current moment,
-    #            [x,y,z](supposed landing position if it is dropped at current moment ),
-    #            [direction from current velocity to aim direction, degree]  human readable
-    #            [x,y,z] distance from supposed landing position to aim if it is dropped at current moment
+    #            "time ": supposed length of time from dropping moment(now) to landing moment if it is dropped at current moment,
+    #            "landing pos: ": [x,y,z](supposed landing position if it is dropped at current moment ),
+    #            "angle ":[direction from current velocity to aim direction, degree]  human readable
+    #            "landing diff ": ["if would land at aim", [x,y,z]] distance from supposed landing position to aim if it is dropped at current moment
     #
     #          ]
 
