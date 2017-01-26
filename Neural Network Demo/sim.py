@@ -32,9 +32,15 @@ def simulate_drop(mass,  pos_self_current,  speed_current,  drag,  wind,  pos_go
     # output: [
     #
     #            "time ": supposed length of time from dropping moment(now) to landing moment if it is dropped at current moment,
-    #            "landing pos: ": [x,y,z](supposed landing position if it is dropped at current moment ),
-    #            "angle ":[direction from current velocity to aim direction, degree]  human readable
-    #            "landing diff ": ["if would land at aim", [x,y,z]] distance from supposed landing position to aim if it is dropped at current moment
+    #
+    #            "landing pos: ": [x,y,z]
+    #            #(supposed landing position if it is dropped at current moment ),
+    #
+    #            "angle ":[direction from current velocity to aim direction, degree]
+    #            # rounded to human readable
+    #
+    #            "landing diff ": ["if would land at aim", [x,y,z]]
+    #            # distance from supposed landing position to aim if it is dropped at current moment
     #
     #          ]
 
